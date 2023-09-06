@@ -1,7 +1,7 @@
 import { featureReloader, addQuickSettingsItems } from "../libs/utility.js"
 import { UnsafeQuickToggle } from "../libs/unsafeQuickToggleHandler.js"
 
-export var unsafeQuickToggleFeature = class {
+export class UnsafeQuickToggleFeature {
   load() {
     // setup reloader
     featureReloader.enableWithSettingKeys(this, [
