@@ -1,12 +1,9 @@
-const ExtensionUtils = imports.misc.extensionUtils
-const Me = ExtensionUtils.getCurrentExtension()
+import { featureReloader, addQuickSettingsItems } from "../libs/utility.js"
+import { QuickSettings, DateMenu } from "../libs/gnome.js"
+import { Indicator } from "../libs/dndQuickToggleHandler.js"
+import Gio from "gi://Gio"
 
-const { featureReloader, addQuickSettingsItems } = Me.imports.libs.utility
-const { QuickSettings, DateMenu, QuickSettingsGrid } = Me.imports.libs.gnome
-const { Indicator } = Me.imports.libs.dndQuickToggleHandler
-const { Gio, GObject } = imports.gi
-
-var dndQuickToggleFeature = class {
+export var dndQuickToggleFeature = class {
   load() {
     // setup reloader
     featureReloader.enableWithSettingKeys(this, [

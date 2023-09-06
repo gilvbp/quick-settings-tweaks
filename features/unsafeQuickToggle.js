@@ -1,12 +1,7 @@
-const ExtensionUtils = imports.misc.extensionUtils
-const Me = ExtensionUtils.getCurrentExtension()
+import { featureReloader, addQuickSettingsItems } from "../libs/utility.js"
+import { UnsafeQuickToggle } from "../libs/unsafeQuickToggleHandler.js"
 
-const { featureReloader, addQuickSettingsItems } = Me.imports.libs.utility
-const { QuickSettings, DateMenu, QuickSettingsGrid } = Me.imports.libs.gnome
-const { UnsafeQuickToggle } = Me.imports.libs.unsafeQuickToggleHandler
-const { Gio, GObject } = imports.gi
-
-var unsafeQuickToggleFeature = class {
+export var unsafeQuickToggleFeature = class {
   load() {
     // setup reloader
     featureReloader.enableWithSettingKeys(this, [
